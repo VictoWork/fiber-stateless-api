@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"time"
 
 	"github.com/gofiber/fiber/v3"
 	"github.com/gofiber/fiber/v3/middleware/logger"
@@ -65,7 +66,7 @@ func (a *App) Start(ctx context.Context) error {
 		return err
 	case <-ctx.Done():
 		fmt.Println("server shuting down")
-		return a.server.Shutdown()
+		return a.server.ShutdownWithTimeout(time.Second * 10)
 	}
 
 }
