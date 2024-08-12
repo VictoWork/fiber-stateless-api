@@ -9,6 +9,6 @@ func (a *App) LoadRoutes() {
 	}
 	a.server.Get("/health", handler.Health)
 	a.server.Get("/key/:key", handler.Get)
-	a.server.Get("/key", handler.Post)
-	a.server.Get("/key/:key", handler.Delete)
+	a.server.Post("/key", handler.Post)
+	a.server.Delete("/key/:key", handler.Delete)
 }
